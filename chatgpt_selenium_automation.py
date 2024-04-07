@@ -29,3 +29,12 @@ class ChatGPTAutomation:
         self.launch_chrome_with_remote_debugging(free_port, url)
         self.wait_for_human_verification()
         self.driver = self.setup_webdriver(free_port)
+     @staticmethod
+    def find_available_port():
+        """ This function finds and returns an available port number on the local machine by creating a temporary
+            socket, binding it to an ephemeral port, and then closing the socket. """
+
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.bind(('', 0))
+            s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            return s.getsockname()[1]
