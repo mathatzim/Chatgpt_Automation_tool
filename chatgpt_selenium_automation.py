@@ -67,3 +67,10 @@ class ChatGPTAutomation:
         input_box.send_keys(Keys.RETURN)
         input_box.submit()
         time.sleep(20)
+
+    def return_chatgpt_conversation(self):
+        """
+        :return: returns a list of items, even items are the submitted questions (prompts) and odd items are chatgpt response
+        """
+
+        return self.driver.find_elements(by=By.CSS_SELECTOR, value='div.text-base')
