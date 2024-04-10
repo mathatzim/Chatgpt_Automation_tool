@@ -58,3 +58,12 @@ class ChatGPTAutomation:
         chrome_options.add_experimental_option("debuggerAddress", f"127.0.0.1:{port}")
         driver = webdriver.Chrome(options=chrome_options)
         return driver
+
+    def send_prompt_to_chatgpt(self, prompt):
+        """ Sends a message to ChatGPT and waits for 20 seconds for the response """
+
+        input_box = self.driver.find_element(by=By.XPATH, value='//textarea[contains(@id, "prompt-textarea")]')
+        self.driver.execute_script(f"arguments[0].value = '{prompt}';", input_box)
+        input_box.send_keys(Keys.RETURN)
+        input_box.submit()
+        time.sleep(20)
