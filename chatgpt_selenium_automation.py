@@ -74,3 +74,26 @@ class ChatGPTAutomation:
         """
 
         return self.driver.find_elements(by=By.CSS_SELECTOR, value='div.text-base')
+
+    def save_conversation(self, file_name):
+        """
+        It saves the full chatgpt conversation of the tab open in chrome into a text file, with the following format:
+            prompt: ...
+            response: ...
+            delimiter
+            prompt: ...
+            response: ...
+
+        :param file_name: name of the file where you want to save
+        """
+
+        directory_name = "conversations"
+        if not os.path.exists(directory_name):
+            os.makedirs(directory_name)
+
+        delimiter = "|^_^|"
+        chatgpt_conversation = self.return_chatgpt_conversation()
+        with open(os.path.join(directory_name, file_name), "w") as file:
+            prompt = chatgpt_conversation[1].text
+            response = chatgpt_conversation[-1].text
+            file.write(f"prompt: {prompt}\nresponse: {response}\n")
