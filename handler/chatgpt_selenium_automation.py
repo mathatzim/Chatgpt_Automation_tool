@@ -97,3 +97,9 @@ class ChatGPTAutomation:
             prompt = chatgpt_conversation[1].text
             response = chatgpt_conversation[-1].text
             file.write(f"prompt: {prompt}\nresponse: {response}\n")
+
+    def return_last_response(self):
+        """ :return: the text of the last chatgpt response """
+
+        response_elements = self.driver.find_elements(by=By.CSS_SELECTOR, value='div.text-base')
+        return response_elements[-1].text
