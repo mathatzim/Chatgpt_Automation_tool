@@ -120,3 +120,9 @@ class ChatGPTAutomation:
                 time.sleep(5)  # You can adjust the waiting time as needed
             else:
                 print("Invalid input. Please enter 'y' or 'n'.")
+
+    def quit(self):
+        """ Closes the browser and terminates the WebDriver session."""
+        print("Closing the browser...")
+        self.driver.close()
+        self.driver.quit()
