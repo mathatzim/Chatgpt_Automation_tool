@@ -103,3 +103,20 @@ class ChatGPTAutomation:
 
         response_elements = self.driver.find_elements(by=By.CSS_SELECTOR, value='div.text-base')
         return response_elements[-1].text
+
+    @staticmethod
+    def wait_for_human_verification():
+        print("You need to manually complete the log-in or the human verification if required.")
+
+        while True:
+            user_input = input(
+                "Enter 'y' if you have completed the log-in or the human verification, or 'n' to check again: ").lower()
+
+            if user_input == 'y':
+                print("Continuing with the automation process...")
+                break
+            elif user_input == 'n':
+                print("Waiting for you to complete the human verification...")
+                time.sleep(5)  # You can adjust the waiting time as needed
+            else:
+                print("Invalid input. Please enter 'y' or 'n'.")
