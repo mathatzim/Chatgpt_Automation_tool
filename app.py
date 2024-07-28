@@ -18,6 +18,14 @@ chatgpt.send_prompt_to_chatgpt(prompt)
 response = chatgpt.return_last_response()
 print(response)
 
+# Define a prompt and send it to chatgpt
+prompt = "Write an example of a database schema for an library management system"
+chatgpt.send_prompt_to_chatgpt(prompt)
+
+# Retrieve the last response from ChatGPT
+response = chatgpt.return_last_response()
+print(response)
+
 # Save the conversation to a text file
 file_name = "conversation.txt"
 chatgpt.save_conversation(file_name)
