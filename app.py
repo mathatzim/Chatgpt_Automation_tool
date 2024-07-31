@@ -10,6 +10,12 @@ chrome_path = r'"C:\Program Files\Google\Chrome\Application\chrome.exe"'
 # Create an instance
 chatgpt = ChatGPTAutomation(chrome_path, chrome_driver_path)
 
+# Check if the chrome driver and chrome path exist
+if not os.path.exists(chrome_driver_path):
+    raise FileNotFoundError(f"The Chrome driver was not found at the specified path: {chrome_driver_path}")
+if not os.path.exists(chrome_path.strip('"')):
+    raise FileNotFoundError(f"The Chrome executable was not found at the specified path: {chrome_path.strip('"')}")
+
 # Define a prompt and send it to chatgpt
 prompt = "Write an example of a database schema for an online store"
 chatgpt.send_prompt_to_chatgpt(prompt)
