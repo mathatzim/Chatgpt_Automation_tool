@@ -94,9 +94,10 @@ class ChatGPTAutomation:
         delimiter = "|^_^|"
         chatgpt_conversation = self.return_chatgpt_conversation()
         with open(os.path.join(directory_name, file_name), "w") as file:
-            prompt = chatgpt_conversation[1].text
-            response = chatgpt_conversation[-1].text
-            file.write(f"prompt: {prompt}\nresponse: {response}\n")
+           for i in range(0, len(chatgpt_conversation), 2):
+                prompt = chatgpt_conversation[i].text if i < len(chatgpt_conversation) else ""
+                response = chatgpt_conversation[i + 1].text if (i + 1) < len(chatgpt_conversation) else ""
+                file.write(f"prompt: {prompt}\nresponse: {response}\n{delimiter}\n")
 
     def return_last_response(self):
         """ :return: the text of the last chatgpt response """
