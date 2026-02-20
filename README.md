@@ -1,25 +1,28 @@
 # ChatGPT Automation Tool (Selenium)
 
-Python + Selenium helper that attaches to a Chrome session and lets you:
-- Open ChatGPT in a real browser
-- Manually log in / complete verification
-- Send prompts
-- Export the conversation to a text file
+A small Python + Selenium project that drives a real Chrome browser session to:
+- open ChatGPT in the browser
+- let you log in manually (and pass any verification)
+- send a prompt
+- save the conversation to a local file
 
-Compliance note: OpenAI’s Terms of Use prohibit “automatically or programmatically extract[ing] data or Output” from the Services. For programmatic use, prefer the official OpenAI API instead of automating the ChatGPT web UI. :contentReference[oaicite:2]{index=2}
+## ⚠️ Important note (use responsibly)
+Automating the ChatGPT *website UI* can be unreliable (UI changes break selectors) and may be restricted by platform terms.
+For stable, compliant programmatic usage, consider using the **OpenAI API** instead:
+- https://openai.com/policies/terms-of-use
+- https://platform.openai.com/docs
 
 ## Features
-- Remote debugging Chrome launch
-- Manual “human verification” checkpoint
-- Prompt sending + conversation export
+- Chrome remote debugging profile support (optional)
+- Manual login checkpoint (no bypassing verification)
+- Prompt send + export conversation text
 
 ## Requirements
 - Python 3.9+
-- Google Chrome installed
+- Google Chrome
 - ChromeDriver that matches your Chrome version
 - Selenium
 
 ## Install
-Create `requirements.txt` (see below) and then:
 ```bash
 pip install -r requirements.txt
