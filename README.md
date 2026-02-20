@@ -6,7 +6,7 @@ A small Python + Selenium project that drives a real Chrome browser session to:
 - send a prompt
 - save the conversation to a local file
 
-## ⚠️ Important note (use responsibly)
+## Important note (use responsibly)
 Automating the ChatGPT *website UI* can be unreliable (UI changes break selectors) and may be restricted by platform terms.
 For stable, compliant programmatic usage, consider using the **OpenAI API** instead:
 - https://openai.com/policies/terms-of-use
