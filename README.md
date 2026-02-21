@@ -26,3 +26,6 @@ For stable, compliant programmatic usage, consider using the **OpenAI API** inst
 ## Install
 ```bash
 pip install -r requirements.txt
+
+## Run
+python app.py --prompt "Write a short summary of what PCA does."
